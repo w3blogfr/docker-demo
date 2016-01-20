@@ -1,0 +1,3 @@
+Lancer la commande
+
+docker build -t myjenkins .

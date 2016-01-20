@@ -1,0 +1,35 @@
+<html>
+
+<body>
+
+<a href="http://localhost:10080/" target="_gitlab">Gitlab</a>
+<br/>
+<a href="http://localhost:10083/" target="_redmine">Redmine</a>
+<br/>
+
+<h1>Jenkins</h1>
+
+<a href="http://localhost:8080/" target="_jenkins">Jenkins</a>
+<br/>
+Créer un nouveau projet Maven
+
+Ajouter git source :
+<br/>
+ssh://git@gitlab:22/root/spring-petclinic.git
+<br/>
+Jenkins va contacter directement le container gitlab (grâce au link effectué entre les containers par docker)
+
+Dans Credential:
+Ajouter la clé privée de démo présente dans ce dépot
+
+<h2>Créer un container</h2>
+
+Ajouter une étape post-build "Docker build and publish"
+<br/>
+Pour les tags, on va utiliser le numéro de build de jenkins. il faut donc mettre
+<br/>
+v${BUILD_NUMBER}
+<br/>
+On n'a pas de registry et on travaille en local, il faut donc cocher la case "Do not push image to registry"
+
+</body>
