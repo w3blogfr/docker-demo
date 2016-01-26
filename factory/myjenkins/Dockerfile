@@ -13,4 +13,3 @@ RUN curl -sSL https://get.docker.com/ | sh
 
 COPY hudson.tasks.Maven.xml /usr/share/jenkins/ref/hudson.tasks.Maven.xml
 
-USER jenkins

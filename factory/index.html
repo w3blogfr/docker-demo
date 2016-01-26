@@ -11,25 +11,42 @@
 
 <a href="http://localhost:8080/" target="_jenkins">Jenkins</a>
 <br/>
-Créer un nouveau projet Maven
-
+Créer un nouveau job Maven
+<br/>
 Ajouter git source :
 <br/>
 ssh://git@gitlab:22/root/spring-petclinic.git
 <br/>
 Jenkins va contacter directement le container gitlab (grâce au link effectué entre les containers par docker)
-
+<br/>
 Dans Credential:
 Ajouter la clé privée de démo présente dans ce dépot
 
 <h2>Créer un container</h2>
 
 Ajouter une étape post-build "Docker build and publish"
+
+Utiliser le nom w3blogfr/mypetclinic
 <br/>
 Pour les tags, on va utiliser le numéro de build de jenkins. il faut donc mettre
-<br/>
+<br/
 v${BUILD_NUMBER}
 <br/>
 On n'a pas de registry et on travaille en local, il faut donc cocher la case "Do not push image to registry"
+
+<h2>Tester l'image </h2>
+Sur l'hote, il faut executer docker images, on va ainsi voir que l'image a bien été créé.
+Si plusieurs lancement, on va voir plusieurs version de la même image.
+<br/>
+Pour la lancer,
+<br>
+docker run --name mypetclinic -d -p 9966:8080 w3blogfr/mypetclinic
+
+
+<h2>Déploiement automatique</h2>
+
+Pas de mise à jour du war dans l'image. Pour mettre à jour...<br/>
+On créer une nouvelle image, on la déploie, on la teste. Si elle fonctionne on supprime l'ancienne.
+<br/>
 
 </body>
