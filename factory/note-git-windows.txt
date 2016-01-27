@@ -1,0 +1,15 @@
+Par défaut git sous windows transforme les sauts de ligne linux en saut de ligne Windows.
+
+Dans Notepadd++, activer l'affichage des caractères des symboles de fin de ligne.
+
+Si vous voyez <CR><LF> à la fin, c'est que git a transformé les fin de lignes lors du pull
+
+
+
+
+Comme nous executons nos dockerfiles dans une vm linux qui partage ses données avec windows, cela peux poser un problème lors de certain build
+
+Le bug est normalement résolu depuis la version 1.8 (Voir https://github.com/docker/toolbox/issues/126)
+
+Mais sinon
+git config --global core.autocrlf input
