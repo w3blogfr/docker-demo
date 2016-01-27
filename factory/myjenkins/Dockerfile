@@ -1,4 +1,4 @@
-FROM jenkins
+FROM jenkins:1.625.3
 
 COPY plugins.txt /usr/share/jenkins/ref/
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
@@ -12,4 +12,4 @@ RUN apt-get update && \
 RUN curl -sSL https://get.docker.com/ | sh
 
 COPY hudson.tasks.Maven.xml /usr/share/jenkins/ref/hudson.tasks.Maven.xml
-
+COPY config.xml /usr/share/jenkins/ref/config.xml

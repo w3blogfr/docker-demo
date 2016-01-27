@@ -15,7 +15,7 @@ Créer un nouveau job Maven
 <br/>
 Ajouter git source :
 <br/>
-ssh://git@gitlab:22/root/spring-petclinic.git
+ssh://git@gitlab:22/root/petclinic.git
 <br/>
 Jenkins va contacter directement le container gitlab (grâce au link effectué entre les containers par docker)
 <br/>
@@ -29,7 +29,7 @@ Ajouter une étape post-build "Docker build and publish"
 Utiliser le nom w3blogfr/mypetclinic
 <br/>
 Pour les tags, on va utiliser le numéro de build de jenkins. il faut donc mettre
-<br/
+<br/>
 v${BUILD_NUMBER}
 <br/>
 On n'a pas de registry et on travaille en local, il faut donc cocher la case "Do not push image to registry"
@@ -40,8 +40,9 @@ Si plusieurs lancement, on va voir plusieurs version de la même image.
 <br/>
 Pour la lancer,
 <br>
-docker run --name mypetclinic -d -p 9966:8080 w3blogfr/mypetclinic
-
+docker run --name mypetclinic -i -p 9966:8080 w3blogfr/mypetclinic
+<br/>
+<a href="http://localhost:9966/petclinic/">http://localhost:9966/petclinic</a>
 
 <h2>Déploiement automatique</h2>
 
