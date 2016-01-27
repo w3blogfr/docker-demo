@@ -5,8 +5,6 @@ postgresql:
     - DB_USER=gitlab
     - DB_PASS=password
     - DB_NAME=gitlabhq_production
-  volumes:
-    - /srv/docker/gitlab/postgresql:/var/lib/postgresql
 gitlab:
   restart: always
   image: sameersbn/gitlab:8.2.2
@@ -54,8 +52,6 @@ gitlab:
     - IMAP_PASS=password
     - IMAP_SSL=true
     - IMAP_STARTTLS=false
-  volumes:
-    - /srv/docker/gitlab/gitlab:/home/git/data
 redis:
   restart: always
   image: sameersbn/redis:latest
